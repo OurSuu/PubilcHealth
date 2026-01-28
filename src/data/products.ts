@@ -1,0 +1,607 @@
+export interface Product {
+    id: string;
+    name: string;
+    nameTh: string;
+    description: string;
+    descriptionTh: string;
+    category: string;
+    categoryTh: string;
+    benefits: string[];
+    benefitsTh: string[];
+    usageType: string;
+    usageTypeTh: string;
+    image: string;
+    productImage: string;      // Main product image for card display
+    infoImage?: string;        // Optional info/detail image for modal
+    activeIngredient?: string;
+    targetUse: string;
+    targetUseTh: string;
+    setId: string; // Which product set this belongs to
+}
+
+export interface ProductSet {
+    id: string;
+    name: string;
+    nameEn: string;
+    description: string;
+    descriptionEn: string;
+    objective: string;
+    objectiveEn: string;
+    icon: string;
+    colorScheme: {
+        primary: string;
+        secondary: string;
+        accent: string;
+    };
+    preventionFlow: {
+        step: number;
+        title: string;
+        titleEn: string;
+        description: string;
+        product: string;
+    }[];
+    productIds: string[];
+    images: string[];
+}
+
+// All products across all sets
+export const products: Product[] = [
+    // === SET 1: Dengue Fever Prevention ===
+    {
+        id: "casper",
+        name: "Casper (Casper-Series)",
+        nameTh: "แคสเปอร์ (Casper-Series)",
+        description: "Professional-grade chemical mosquito control product designed for area spraying and disease vector control. Highly effective for industrial and public health applications in eliminating adult mosquitoes.",
+        descriptionTh: "ผลิตภัณฑ์กำจัดยุงระดับมืออาชีพสำหรับการพ่นหมอกควันในพื้นที่ มีประสิทธิภาพสูงในการควบคุมยุงตัวเต็มวัย เหมาะสำหรับงานสาธารณสุขและอุตสาหกรรม",
+        category: "Mosquito Control",
+        categoryTh: "ควบคุมยุงตัวเต็มวัย",
+        benefits: [
+            "Rapid knockdown effect on adult mosquitoes",
+            "Long residual activity",
+            "Low toxicity to mammals",
+            "Effective in indoor and outdoor environments",
+            "WHO recommended formulation"
+        ],
+        benefitsTh: [
+            "ออกฤทธิ์กำจัดยุงตัวเต็มวัยอย่างรวดเร็ว",
+            "มีฤทธิ์ตกค้างยาวนาน",
+            "มีความเป็นพิษต่ำต่อสัตว์เลี้ยงลูกด้วยนม",
+            "ใช้ได้ทั้งในอาคารและนอกอาคาร",
+            "สูตรที่แนะนำโดย WHO"
+        ],
+        usageType: "ULV / Thermal Fogging",
+        usageTypeTh: "พ่นหมอกควัน / พ่น ULV",
+        image: "/products/casper.svg",
+        productImage: "/image/set1/Casper.jpg",
+        infoImage: "/image/set1/CasperInfo.jpg",
+        activeIngredient: "Deltamethrin / Permethrin",
+        targetUse: "Area spraying for dengue outbreak control",
+        targetUseTh: "พ่นควบคุมโรคไข้เลือดออกในพื้นที่",
+        setId: "set-1"
+    },
+    {
+        id: "l-force",
+        name: "L-Force",
+        nameTh: "แอล-ฟอร์ซ",
+        description: "Temephos-based larvicide for controlling mosquito larvae in water containers, drains, and breeding sites. Provides long-lasting protection against dengue vector development.",
+        descriptionTh: "สารกำจัดลูกน้ำยุงลาย (ทีมีฟอส) สำหรับควบคุมลูกน้ำในภาชนะขังน้ำ ท่อระบายน้ำ และแหล่งเพาะพันธุ์ยุง ให้การป้องกันที่ยาวนาน",
+        category: "Larvae Control",
+        categoryTh: "ควบคุมลูกน้ำยุงลาย",
+        benefits: [
+            "Effective against Aedes aegypti larvae",
+            "Safe for drinking water containers",
+            "Long-lasting effectiveness (4-12 weeks)",
+            "Easy to apply in various water sources",
+            "Thai FDA approved"
+        ],
+        benefitsTh: [
+            "มีประสิทธิภาพสูงในการกำจัดลูกน้ำยุงลาย",
+            "ปลอดภัยสำหรับภาชนะน้ำดื่ม",
+            "ออกฤทธิ์ยาวนาน 4-12 สัปดาห์",
+            "ใช้งานง่ายในแหล่งน้ำหลากหลายประเภท",
+            "ได้รับการรับรองจาก อย."
+        ],
+        usageType: "Granular / Sand Granule",
+        usageTypeTh: "แบบเม็ดทราย",
+        image: "/products/l-force.svg",
+        productImage: "/image/set1/L-Force.jpg",
+        activeIngredient: "Temephos 1%",
+        targetUse: "Water storage containers, drains, and potential breeding sites",
+        targetUseTh: "ภาชนะเก็บน้ำ ท่อระบาย และแหล่งเพาะพันธุ์ยุง",
+        setId: "set-1"
+    },
+    {
+        id: "mosgon-spray",
+        name: "Mosgon Spray",
+        nameTh: "มอสกอน สเปรย์",
+        description: "Personal mosquito repellent spray designed for everyday protection. DEET-free formula that is safe for children, pregnant women, and sensitive skin. Provides reliable protection for the whole family.",
+        descriptionTh: "สเปรย์ไล่ยุงสูตรปลอดภัย ไม่มี DEET ปลอดภัยสำหรับเด็กและหญิงตั้งครรภ์ ให้การปกป้องที่เชื่อถือได้สำหรับทุกคนในครอบครัว",
+        category: "Personal Protection",
+        categoryTh: "ป้องกันส่วนบุคคล",
+        benefits: [
+            "DEET-Free formula",
+            "Safe for children and pregnant women",
+            "Gentle on sensitive skin",
+            "Pleasant, non-greasy formula",
+            "Effective protection for 4-6 hours"
+        ],
+        benefitsTh: [
+            "สูตรปราศจาก DEET",
+            "ปลอดภัยสำหรับเด็กและหญิงตั้งครรภ์",
+            "อ่อนโยนต่อผิวแพ้ง่าย",
+            "สูตรไม่เหนียวเหนอะหนะ กลิ่นหอมสดชื่น",
+            "ป้องกันยุงได้นาน 4-6 ชั่วโมง"
+        ],
+        usageType: "Personal Spray",
+        usageTypeTh: "สเปรย์ฉีดตัว",
+        image: "/products/mosgon-spray.svg",
+        productImage: "/image/set1/Mosgon.jpg",
+        infoImage: "/image/set1/MosgonInfo.jpg",
+        activeIngredient: "IR3535 / Picaridin",
+        targetUse: "Everyday personal and family protection",
+        targetUseTh: "ใช้ป้องกันยุงสำหรับครอบครัวในชีวิตประจำวัน",
+        setId: "set-1"
+    },
+
+    // === SET 2: Disease Re-emergence Prevention ===
+    {
+        id: "l-proxy",
+        name: "L-Proxy",
+        nameTh: "แอล-พร็อกซี่",
+        description: "Advanced larvae growth regulator in tablet form using Pyriproxyfen 0.25% w/w. Provides approximately 3 months of continuous protection. Ideal for water container surveillance and disease prevention at source.",
+        descriptionTh: "สารยับยั้งการเจริญเติบโตของลูกน้ำในรูปแบบเม็ด ใช้สารไพริพร็อกซิเฟน 0.25% ให้การป้องกันต่อเนื่องประมาณ 3 เดือน เหมาะสำหรับการเฝ้าระวังภาชนะน้ำและป้องกันโรคที่แหล่งต้นตอ",
+        category: "Larvae Regulator",
+        categoryTh: "ยับยั้งการเจริญเติบโตลูกน้ำ",
+        benefits: [
+            "Long-lasting protection (approx. 3 months)",
+            "Tablet form for easy application",
+            "Thai FDA registered",
+            "Prevents larvae development at source",
+            "Effective surveillance tool"
+        ],
+        benefitsTh: [
+            "ป้องกันได้ยาวนานประมาณ 3 เดือน",
+            "รูปแบบเม็ดใช้งานสะดวก",
+            "ขึ้นทะเบียน อย.",
+            "ป้องกันการพัฒนาของลูกน้ำที่แหล่งต้นตอ",
+            "เครื่องมือเฝ้าระวังที่มีประสิทธิภาพ"
+        ],
+        usageType: "Tablet / Drop in water",
+        usageTypeTh: "เม็ดหยดลงน้ำ",
+        image: "/products/l-proxy.svg",
+        productImage: "/image/set2/L-Proxy.jpg",
+        activeIngredient: "Pyriproxyfen 0.25% w/w",
+        targetUse: "Water container surveillance and long-term larvae control",
+        targetUseTh: "เฝ้าระวังภาชนะน้ำและควบคุมลูกน้ำระยะยาว",
+        setId: "set-2"
+    },
+    {
+        id: "procare-disinfectant",
+        name: "Procare Hygienic Disinfectant",
+        nameTh: "โปรแคร์ น้ำยาฆ่าเชื้อ",
+        description: "Multi-purpose disinfectant liquid effective against viruses, bacteria, and SARS-CoV-2. Non-corrosive formula suitable for floors, walls, bathrooms, and various surfaces in hospitals, schools, and offices.",
+        descriptionTh: "น้ำยาฆ่าเชื้ออเนกประสงค์ มีประสิทธิภาพกำจัดไวรัส แบคทีเรีย และเชื้อ SARS-CoV-2 สูตรไม่กัดกร่อน เหมาะสำหรับพื้น ผนัง ห้องน้ำ และพื้นผิวต่างๆ ในโรงพยาบาล โรงเรียน และสำนักงาน",
+        category: "Surface Disinfectant",
+        categoryTh: "ฆ่าเชื้อพื้นผิว",
+        benefits: [
+            "Kills viruses, bacteria, and SARS-CoV-2",
+            "Non-corrosive formula",
+            "Multi-surface compatible",
+            "Hospital-grade disinfection",
+            "Pleasant fragrance"
+        ],
+        benefitsTh: [
+            "กำจัดไวรัส แบคทีเรีย และเชื้อ SARS-CoV-2",
+            "สูตรไม่กัดกร่อน",
+            "ใช้ได้กับหลายพื้นผิว",
+            "ฆ่าเชื้อระดับโรงพยาบาล",
+            "กลิ่นหอมสดชื่น"
+        ],
+        usageType: "Dilute & Mop / Wipe",
+        usageTypeTh: "เจือจางแล้วถู / เช็ด",
+        image: "/products/procare-disinfectant.svg",
+        productImage: "/image/set2/Hygienic Disinfectant.jpg",
+        activeIngredient: "Quaternary Ammonium Compounds",
+        targetUse: "Floors, walls, bathrooms in hospitals, schools, offices",
+        targetUseTh: "พื้น ผนัง ห้องน้ำ ในโรงพยาบาล โรงเรียน สำนักงาน",
+        setId: "set-2"
+    },
+    {
+        id: "procare-spray",
+        name: "Procare Hygienic Disinfectant Spray",
+        nameTh: "โปรแคร์ สเปรย์ฆ่าเชื้อ",
+        description: "Ready-to-use disinfectant spray achieving 99.9% disinfection in just 1 minute. Designed for high-touch surfaces and indoor public hygiene control. Convenient spray format for quick application.",
+        descriptionTh: "สเปรย์ฆ่าเชื้อพร้อมใช้ ฆ่าเชื้อได้ 99.9% ภายใน 1 นาที ออกแบบสำหรับพื้นผิวสัมผัสบ่อยและการควบคุมสุขอนามัยในอาคาร รูปแบบสเปรย์สะดวกใช้งานรวดเร็ว",
+        category: "Spray Disinfectant",
+        categoryTh: "สเปรย์ฆ่าเชื้อ",
+        benefits: [
+            "99.9% disinfection in 1 minute",
+            "Ready-to-use spray format",
+            "Ideal for high-touch surfaces",
+            "Quick-dry formula",
+            "Indoor hygiene control"
+        ],
+        benefitsTh: [
+            "ฆ่าเชื้อ 99.9% ใน 1 นาที",
+            "รูปแบบสเปรย์พร้อมใช้",
+            "เหมาะสำหรับพื้นผิวสัมผัสบ่อย",
+            "สูตรแห้งเร็ว",
+            "ควบคุมสุขอนามัยในอาคาร"
+        ],
+        usageType: "Spray directly",
+        usageTypeTh: "ฉีดพ่นโดยตรง",
+        image: "/products/procare-spray.svg",
+        productImage: "/image/set2/Hygienic Disinfect Spray.jpg",
+        activeIngredient: "Ethanol + Quaternary Ammonium",
+        targetUse: "High-touch surfaces: door handles, desks, equipment",
+        targetUseTh: "พื้นผิวสัมผัสบ่อย: มือจับประตู โต๊ะ อุปกรณ์",
+        setId: "set-2"
+    },
+
+    // === SET 3: Vector/Pest Control ===
+    {
+        id: "rejex-it",
+        name: "RejeX-it (Bird Repellent)",
+        nameTh: "รีเจ็กซ์-อิท (ไล่นก)",
+        description: "Professional bird repellent gel for deterring pigeons and pest birds from structures. Non-toxic, humane solution for protecting buildings, monuments, and public areas from bird-related damage and disease transmission.",
+        descriptionTh: "เจลไล่นกระดับมืออาชีพ สำหรับป้องกันนกพิราบและนกรบกวนจากอาคาร สูตรไม่เป็นพิษ ปลอดภัย ปกป้องอาคาร อนุสาวรีย์ และพื้นที่สาธารณะจากความเสียหายและการแพร่โรคจากนก",
+        category: "Bird Control",
+        categoryTh: "ควบคุมนก",
+        benefits: [
+            "Non-toxic, humane bird deterrent",
+            "Long-lasting gel formula (6-12 months)",
+            "Weather-resistant",
+            "Safe for buildings and structures",
+            "Prevents disease transmission from birds"
+        ],
+        benefitsTh: [
+            "สูตรไม่เป็นพิษ ไล่นกอย่างมีมนุษยธรรม",
+            "เจลออกฤทธิ์ยาวนาน 6-12 เดือน",
+            "ทนทานต่อสภาพอากาศ",
+            "ปลอดภัยต่ออาคารและโครงสร้าง",
+            "ป้องกันการแพร่โรคจากนก"
+        ],
+        usageType: "Gel Application",
+        usageTypeTh: "ทาเจล",
+        image: "/products/rejex-it.svg",
+        productImage: "/image/set3/RejeX-it.jpg",
+        infoImage: "/image/set3/RejeX-it-INFO.jpg",
+        activeIngredient: "Polybutene-based Gel",
+        targetUse: "Buildings, ledges, monuments, warehouses",
+        targetUseTh: "อาคาร ขอบหน้าต่าง อนุสาวรีย์ โกดัง",
+        setId: "set-3"
+    },
+    {
+        id: "wax-block-rodenticide",
+        name: "Wax Block Rodenticide",
+        nameTh: "เหยื่อหนูแบบบล็อก",
+        description: "Professional-grade rodenticide wax block for controlling rats and mice in public health applications. Moisture-resistant formula suitable for indoor and outdoor use in various environmental conditions.",
+        descriptionTh: "เหยื่อกำจัดหนูแบบบล็อกระดับมืออาชีพ สำหรับควบคุมหนูในงานสาธารณสุข สูตรทนความชื้น เหมาะสำหรับใช้ทั้งในและนอกอาคารในสภาพแวดล้อมที่หลากหลาย",
+        category: "Rodent Control",
+        categoryTh: "ควบคุมหนู",
+        benefits: [
+            "Moisture-resistant wax block",
+            "Attractive to rats and mice",
+            "Long-lasting effectiveness",
+            "Suitable for indoor/outdoor use",
+            "Tamper-resistant bait station compatible"
+        ],
+        benefitsTh: [
+            "บล็อกทนความชื้น",
+            "ดึงดูดหนูได้ดี",
+            "ออกฤทธิ์ยาวนาน",
+            "ใช้ได้ทั้งในและนอกอาคาร",
+            "ใช้กับกล่องเหยื่อนิรภัยได้"
+        ],
+        usageType: "Bait Station Placement",
+        usageTypeTh: "วางในกล่องเหยื่อ",
+        image: "/products/wax-block.svg",
+        productImage: "/image/set3/Ked.jpg",
+        infoImage: "/image/set3/Ked-Info.jpg",
+        activeIngredient: "Brodifacoum / Bromadiolone",
+        targetUse: "Warehouses, markets, food storage areas, drainage",
+        targetUseTh: "โกดัง ตลาด คลังอาหาร ท่อระบายน้ำ",
+        setId: "set-3"
+    },
+    {
+        id: "safrotin-mc",
+        name: "Safrotin MC (Microcapsule)",
+        nameTh: "แซฟโรติน เอ็มซี (ไมโครแคปซูล)",
+        description: "Advanced microcapsule insecticide for long-lasting residual control of crawling insects including cockroaches, ants, and other pests. Slow-release technology provides extended protection in public health applications.",
+        descriptionTh: "สารกำจัดแมลงไมโครแคปซูลขั้นสูง สำหรับการควบคุมแบบตกค้างระยะยาว กำจัดแมลงคลาน เช่น แมลงสาบ มด และศัตรูพืชอื่นๆ เทคโนโลยีปลดปล่อยช้าให้การป้องกันที่ยาวนาน",
+        category: "Insect Control",
+        categoryTh: "ควบคุมแมลง",
+        benefits: [
+            "Microcapsule slow-release technology",
+            "Long residual effect (up to 3 months)",
+            "Low odor formula",
+            "Effective against crawling insects",
+            "Water-based, low toxicity"
+        ],
+        benefitsTh: [
+            "เทคโนโลยีไมโครแคปซูลปลดปล่อยช้า",
+            "ออกฤทธิ์ตกค้างนาน (ถึง 3 เดือน)",
+            "สูตรกลิ่นอ่อน",
+            "มีประสิทธิภาพกับแมลงคลาน",
+            "สูตรน้ำ ความเป็นพิษต่ำ"
+        ],
+        usageType: "Residual Spray",
+        usageTypeTh: "พ่นแบบตกค้าง",
+        image: "/products/safrotin-mc.svg",
+        productImage: "/image/set3/Safrotin-MC.jpg",
+        infoImage: "/image/set3/Safrotin-MC-Info.jpg",
+        activeIngredient: "Propoxur / Cyfluthrin MC",
+        targetUse: "Kitchens, food processing, hospitals, schools",
+        targetUseTh: "ห้องครัว โรงงานอาหาร โรงพยาบาล โรงเรียน",
+        setId: "set-3"
+    }
+];
+
+// Product Sets configuration
+export const productSets: ProductSet[] = [
+    {
+        id: "set-1",
+        name: "ชุดที่ 1 : วัสดุควบคุม ป้องกัน และเฝ้าระวังโรคไข้เลือดออก",
+        nameEn: "Dengue Fever Prevention & Control",
+        description: "ชุดผลิตภัณฑ์ครบวงจรสำหรับการควบคุมและป้องกันโรคไข้เลือดออก ครอบคลุมตั้งแต่การกำจัดลูกน้ำ การควบคุมยุงตัวเต็มวัย ไปจนถึงการป้องกันส่วนบุคคล",
+        descriptionEn: "Complete product set for dengue fever control and prevention, covering larvae control, adult mosquito control, and personal protection.",
+        objective: "ตัดวงจรชีวิตยุงลายและลดการระบาดของโรคไข้เลือดออก",
+        objectiveEn: "Break the Aedes mosquito lifecycle and reduce dengue outbreaks",
+        icon: "mosquito",
+        colorScheme: {
+            primary: "#0A2463",
+            secondary: "#1E3A8A",
+            accent: "#06B6D4"
+        },
+        preventionFlow: [
+            {
+                step: 1,
+                title: "ควบคุมลูกน้ำ",
+                titleEn: "Larvae Control",
+                description: "กำจัดลูกน้ำในแหล่งน้ำขัง",
+                product: "L-Force"
+            },
+            {
+                step: 2,
+                title: "ควบคุมยุงตัวเต็มวัย",
+                titleEn: "Area Control",
+                description: "พ่นหมอกควันกำจัดยุงในพื้นที่",
+                product: "Casper"
+            },
+            {
+                step: 3,
+                title: "ป้องกันส่วนบุคคล",
+                titleEn: "Personal Protection",
+                description: "ใช้สเปรย์ไล่ยุงทุกวัน",
+                product: "Mosgon Spray"
+            }
+        ],
+        productIds: ["casper", "l-force", "mosgon-spray"],
+        images: [
+            "/image/set1/set1.jpg",
+            "/image/set1/set1 number2.jpg",
+            "/image/set1/set1 number3.jpg",
+            "/image/set1/set1 number4.jpg",
+            "/image/set1/set1 number5.jpg"
+        ]
+    },
+    {
+        id: "set-2",
+        name: "ชุดที่ 2 : วัสดุควบคุม เฝ้าระวัง และป้องกันโรคอุบัติซ้ำ–อุบัติใหม่",
+        nameEn: "Re-emerging & Emerging Disease Prevention",
+        description: "ชุดผลิตภัณฑ์สำหรับการป้องกันโรคอุบัติซ้ำและอุบัติใหม่ ควบคุมเชื้อโรคในพื้นที่สาธารณะ และสนับสนุนระบบเฝ้าระวังสุขอนามัย",
+        descriptionEn: "Product set for preventing re-emerging and emerging diseases, controlling pathogens in public spaces, and supporting hygiene surveillance systems.",
+        objective: "ป้องกันการกลับมาระบาดของโรคและควบคุมเชื้อโรคในพื้นที่สาธารณะ",
+        objectiveEn: "Prevent disease re-emergence and control pathogens in public spaces",
+        icon: "shield",
+        colorScheme: {
+            primary: "#0A2463",
+            secondary: "#1E3A8A",
+            accent: "#10B981"
+        },
+        preventionFlow: [
+            {
+                step: 1,
+                title: "เฝ้าระวังแหล่งน้ำ",
+                titleEn: "Water Surveillance",
+                description: "ควบคุมลูกน้ำระยะยาว 3 เดือน",
+                product: "L-Proxy"
+            },
+            {
+                step: 2,
+                title: "ฆ่าเชื้อพื้นผิว",
+                titleEn: "Surface Disinfection",
+                description: "ทำความสะอาดฆ่าเชื้อพื้น ผนัง",
+                product: "Procare Disinfectant"
+            },
+            {
+                step: 3,
+                title: "ฆ่าเชื้อจุดสัมผัส",
+                titleEn: "Touch Point Control",
+                description: "ฉีดพ่นพื้นผิวสัมผัสบ่อย",
+                product: "Procare Spray"
+            }
+        ],
+        productIds: ["l-proxy", "procare-disinfectant", "procare-spray"],
+        images: [
+            "/image/set2/Set2.jpg",
+            "/image/set2/Set2 Number2.jpg",
+            "/image/set2/Set2 Number3.jpg"
+        ]
+    },
+    {
+        id: "set-3",
+        name: "ชุดที่ 3 : วัสดุควบคุม เฝ้าระวัง และป้องกันโรคสัตว์พาหะนำโรค",
+        nameEn: "Vector & Pest Control",
+        description: "ชุดผลิตภัณฑ์สำหรับการควบคุมสัตว์พาหะนำโรค ได้แก่ นก หนู และแมลงศัตรูสาธารณสุข ป้องกันการแพร่โรคจากสัตว์พาหะในพื้นที่สาธารณะ",
+        descriptionEn: "Product set for controlling disease vectors including birds, rodents, and public health pest insects. Prevents disease transmission from vectors in public areas.",
+        objective: "ควบคุมสัตว์พาหะนำโรคและป้องกันการแพร่โรคจากนก หนู และแมลง",
+        objectiveEn: "Control disease vectors and prevent transmission from birds, rodents, and insects",
+        icon: "pest",
+        colorScheme: {
+            primary: "#0A2463",
+            secondary: "#1E3A8A",
+            accent: "#F59E0B"
+        },
+        preventionFlow: [
+            {
+                step: 1,
+                title: "ควบคุมนกพาหะ",
+                titleEn: "Bird Control",
+                description: "ไล่นกจากอาคารและพื้นที่",
+                product: "RejeX-it"
+            },
+            {
+                step: 2,
+                title: "ควบคุมหนู",
+                titleEn: "Rodent Control",
+                description: "กำจัดหนูในพื้นที่เสี่ยง",
+                product: "Wax Block"
+            },
+            {
+                step: 3,
+                title: "ควบคุมแมลง",
+                titleEn: "Insect Control",
+                description: "พ่นควบคุมแมลงคลาน",
+                product: "Safrotin MC"
+            }
+        ],
+        productIds: ["rejex-it", "wax-block-rodenticide", "safrotin-mc"],
+        images: [
+            "/image/set3/Set3.jpg",
+            "/image/set3/Set3 Number2.jpg",
+            "/image/set3/Set3 Number3.jpg",
+            "/image/set3/Set3 Number4.jpg",
+            "/image/set3/Set3 Number5.jpg",
+            "/image/set3/Set3 Number6.jpg",
+            "/image/set3/Set3 Number7.jpg"
+        ]
+    }
+];
+
+// Helper to get products by set
+export const getProductsBySet = (setId: string): Product[] => {
+    return products.filter(p => p.setId === setId);
+};
+
+// Legacy export for backward compatibility
+export const productSetInfo = productSets[0];
+
+export const companyInfo = {
+    name: "Public Health Chemical Solutions",
+    nameTh: "โซลูชั่นเคมีภัณฑ์สาธารณสุข",
+    tagline: "Comprehensive Solutions for Disease Prevention",
+    taglineTh: "โซลูชั่นครบวงจรเพื่อการป้องกันโรค",
+    description: "Professional-grade public health products for disease prevention and control. Trusted by local governments, schools, and healthcare facilities across Thailand.",
+    descriptionTh: "ผลิตภัณฑ์สาธารณสุขระดับมืออาชีพสำหรับการป้องกันและควบคุมโรค ได้รับความไว้วางใจจากหน่วยงานราชการ โรงเรียน และสถานพยาบาลทั่วประเทศไทย",
+    mission: "Protecting communities through effective, safe, and accessible disease prevention solutions.",
+    missionTh: "ปกป้องชุมชนด้วยผลิตภัณฑ์ป้องกันโรคที่มีประสิทธิภาพ ปลอดภัย และเข้าถึงได้"
+};
+
+export const targetUsers = [
+    {
+        id: "local-government",
+        name: "Local Government",
+        nameTh: "องค์กรปกครองส่วนท้องถิ่น (อปท.)",
+        description: "Municipal and sub-district administration organizations",
+        descriptionTh: "เทศบาล อบต. อบจ. สำหรับโครงการควบคุมโรค",
+        icon: "government"
+    },
+    {
+        id: "hospitals",
+        name: "Hospitals & Clinics",
+        nameTh: "โรงพยาบาลและคลินิก",
+        description: "Healthcare facilities requiring hospital-grade disinfection",
+        descriptionTh: "สถานพยาบาลที่ต้องการการฆ่าเชื้อระดับโรงพยาบาล",
+        icon: "hospital"
+    },
+    {
+        id: "schools",
+        name: "Schools",
+        nameTh: "โรงเรียนและสถานศึกษา",
+        description: "Educational institutions protecting students and staff",
+        descriptionTh: "ปกป้องนักเรียน ครู และบุคลากรจากโรคติดต่อ",
+        icon: "school"
+    },
+    {
+        id: "communities",
+        name: "Communities",
+        nameTh: "ชุมชนและหมู่บ้าน",
+        description: "Village health volunteers and community leaders",
+        descriptionTh: "อสม. ผู้นำชุมชน และหมู่บ้านจัดสรร",
+        icon: "community"
+    },
+    {
+        id: "offices",
+        name: "Offices & Buildings",
+        nameTh: "สำนักงานและอาคาร",
+        description: "Commercial buildings and office spaces",
+        descriptionTh: "อาคารพาณิชย์และพื้นที่สำนักงาน",
+        icon: "office"
+    },
+    {
+        id: "markets",
+        name: "Markets & Public Areas",
+        nameTh: "ตลาดและพื้นที่สาธารณะ",
+        description: "Fresh markets, parks, and public gathering spaces",
+        descriptionTh: "ตลาดสด สวนสาธารณะ และพื้นที่ชุมชนคนเข้าออกมาก",
+        icon: "market"
+    }
+];
+
+export const contactInfo = {
+    phone: "02-XXX-XXXX",
+    mobile: "08X-XXX-XXXX",
+    email: "info@publichealthsolutions.co.th",
+    line: "@publichealthsolutions",
+    facebook: "PublicHealthSolutionsTH",
+    address: "กรุงเทพมหานคร ประเทศไทย",
+    addressEn: "Bangkok, Thailand",
+    businessHours: "จันทร์ - ศุกร์ 8:30 - 17:30 น.",
+    businessHoursEn: "Monday - Friday 8:30 AM - 5:30 PM"
+};
+
+export const safetyInfo = {
+    certifications: [
+        "Thai FDA Registered",
+        "WHO Recommended",
+        "GMP Certified Manufacturing",
+        "Public Health Standard"
+    ],
+    certificationsTh: [
+        "ขึ้นทะเบียน อย.",
+        "แนะนำโดย WHO",
+        "ผลิตตามมาตรฐาน GMP",
+        "มาตรฐานสาธารณสุข"
+    ],
+    warnings: [
+        "Keep out of reach of children",
+        "Store in cool, dry place away from direct sunlight",
+        "Do not ingest or apply to food",
+        "Wash hands after handling chemicals",
+        "Use in well-ventilated areas"
+    ],
+    warningsTh: [
+        "เก็บให้พ้นมือเด็ก",
+        "เก็บในที่เย็นและแห้ง หลีกเลี่ยงแสงแดดโดยตรง",
+        "ห้ามรับประทานหรือใช้กับอาหาร",
+        "ล้างมือหลังใช้สารเคมี",
+        "ใช้ในที่มีอากาศถ่ายเท"
+    ],
+    guidelines: [
+        "Read product labels carefully before use",
+        "Follow recommended application rates",
+        "Use appropriate personal protective equipment",
+        "Dispose of containers according to local regulations",
+        "Contact local health authorities for large-scale applications"
+    ],
+    guidelinesTh: [
+        "อ่านฉลากผลิตภัณฑ์อย่างละเอียดก่อนใช้",
+        "ปฏิบัติตามอัตราการใช้ที่แนะนำ",
+        "สวมอุปกรณ์ป้องกันส่วนบุคคลที่เหมาะสม",
+        "กำจัดบรรจุภัณฑ์ตามข้อกำหนดท้องถิ่น",
+        "ติดต่อหน่วยงานสาธารณสุขสำหรับการใช้งานขนาดใหญ่"
+    ],
+    sdsNotice: "Safety Data Sheets (SDS) are available upon request for all products. Contact us for official documentation required for organizational procurement.",
+    sdsNoticeTh: "เอกสารข้อมูลความปลอดภัย (SDS) มีให้สำหรับทุกผลิตภัณฑ์ ติดต่อเราเพื่อขอเอกสารราชการสำหรับการจัดซื้อขององค์กร"
+};

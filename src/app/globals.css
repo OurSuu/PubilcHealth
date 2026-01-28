@@ -1,26 +1,247 @@
 @import "tailwindcss";
 
+/* Design System Tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors - Deep Blue Chemical Theme */
+  --primary-900: #0A2463;
+  --primary-800: #0D2B6B;
+  --primary-700: #1E3A8A;
+  --primary-600: #1E40AF;
+  --primary-500: #2563EB;
+  
+  /* Secondary Colors */
+  --secondary-500: #3B82F6;
+  --secondary-400: #60A5FA;
+  --secondary-300: #93C5FD;
+  
+  /* Accent Colors */
+  --accent-silver: #94A3B8;
+  --accent-light-blue: #DBEAFE;
+  
+  /* Background & Surface */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #F1F5F9;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  
+  /* Text Colors */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+  
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #0A2463 0%, #1E3A8A 50%, #1E40AF 100%);
+  --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  --gradient-accent: linear-gradient(90deg, #3B82F6 0%, #2563EB 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-thai), var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Section Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease forwards;
+}
+
+/* Intersection Observer Animation States */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: var(--gradient-accent);
+  color: var(--text-inverse);
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-inverse);
+  padding: 0.875rem 2rem;
+  border: 2px solid var(--text-inverse);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all var(--transition-base);
+}
+
+.btn-secondary:hover {
+  background: var(--text-inverse);
+  color: var(--primary-700);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Safety Warning Box */
+.warning-box {
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border-left: 4px solid #F59E0B;
+  padding: 1rem 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Chemical Pattern Background */
+.chemical-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(30, 58, 138, 0.05) 0%, transparent 50%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-silver);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-600);
 }
