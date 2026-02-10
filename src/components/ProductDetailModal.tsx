@@ -121,8 +121,8 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
                                         key={idx}
                                         onClick={() => activeImageIndex !== idx && setActiveImageIndex(idx)}
                                         className={`relative w-12 h-12 rounded-lg overflow-hidden transition-all ${activeImageIndex === idx
-                                                ? "ring-2 ring-offset-1 opacity-100 scale-105"
-                                                : "opacity-60 hover:opacity-100"
+                                            ? "ring-2 ring-offset-1 opacity-100 scale-105"
+                                            : "opacity-60 hover:opacity-100"
                                             }`}
                                         style={activeImageIndex === idx ? { boxShadow: `0 0 0 2px ${accentColor}` } : {}}
                                     >
@@ -169,10 +169,17 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
                             {/* Active Ingredient */}
                             {product.activeIngredient && (
                                 <div className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">
+                                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                                         สารออกฤทธิ์
                                     </h3>
-                                    <p className="text-gray-900 font-semibold">{product.activeIngredient}</p>
+                                    <ul className="space-y-2">
+                                        {product.activeIngredient.split(' / ').map((ingredient, index) => (
+                                            <li key={index} className="text-gray-900 font-semibold text-sm flex items-start gap-2">
+                                                <span className="block w-1.5 h-1.5 bg-gray-400 rounded-full mt-1.5 flex-shrink-0" />
+                                                <span className="leading-snug">{ingredient.trim()}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             )}
 

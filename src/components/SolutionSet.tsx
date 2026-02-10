@@ -105,7 +105,7 @@ export default function SolutionSet({ set, index }: SolutionSetProps) {
     return (
         <section
             id={set.id}
-            className={`py-20 ${isEven ? 'bg-white' : 'bg-gray-50'}`}
+            className={`py-12 sm:py-20 ${isEven ? 'bg-white' : 'bg-gray-50'}`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Set Header */}

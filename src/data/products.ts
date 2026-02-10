@@ -49,10 +49,10 @@ export const products: Product[] = [
     // === SET 1: Dengue Fever Prevention ===
     {
         id: "casper",
-        name: "Casper (Casper-Series)",
-        nameTh: "แคสเปอร์ (Casper-Series)",
+        name: "Casper (Casper-Series 1)",
+        nameTh: "Casper (Casper-Series 1)",
         description: "Professional-grade chemical mosquito control product designed for area spraying and disease vector control. Highly effective for industrial and public health applications in eliminating adult mosquitoes.",
-        descriptionTh: "ผลิตภัณฑ์กำจัดยุงระดับมืออาชีพสำหรับการพ่นหมอกควันในพื้นที่ มีประสิทธิภาพสูงในการควบคุมยุงตัวเต็มวัย เหมาะสำหรับงานสาธารณสุขและอุตสาหกรรม",
+        descriptionTh: "ผลิตภัณฑ์สำหรับกำจัดยุงตัวเต็มวัย เหมาะสำหรับการควบคุมและเฝ้าระวังโรคไข้เลือดออก ใช้งานได้ทั้งในอาคารและนอกอาคาร เหมาะสำหรับชุมชน โรงเรียน และพื้นที่สาธารณะ",
         category: "Mosquito Control",
         categoryTh: "ควบคุมยุงตัวเต็มวัย",
         benefits: [
@@ -64,7 +64,6 @@ export const products: Product[] = [
         ],
         benefitsTh: [
             "ออกฤทธิ์กำจัดยุงตัวเต็มวัยอย่างรวดเร็ว",
-            "มีฤทธิ์ตกค้างยาวนาน",
             "มีความเป็นพิษต่ำต่อสัตว์เลี้ยงลูกด้วยนม",
             "ใช้ได้ทั้งในอาคารและนอกอาคาร",
             "สูตรที่แนะนำโดย WHO"
@@ -74,7 +73,7 @@ export const products: Product[] = [
         image: "/products/casper.svg",
         productImage: "/image/set1/Casper.jpg",
         infoImage: "/image/set1/CasperInfo.jpg",
-        activeIngredient: "Deltamethrin / Permethrin",
+        activeIngredient: "zeta-Cypermethrin 2.25% w/v / Tetramethrin 2.25% w/v / Piperonyl butoxide 9.0% w/v",
         targetUse: "Area spraying for dengue outbreak control",
         targetUseTh: "พ่นควบคุมโรคไข้เลือดออกในพื้นที่",
         setId: "set-1"
@@ -105,9 +104,9 @@ export const products: Product[] = [
         usageTypeTh: "แบบเม็ดทราย",
         image: "/products/l-force.svg",
         productImage: "/image/set1/L-Force.jpg",
-        activeIngredient: "Temephos 1%",
+        activeIngredient: "Temephos 10%",
         targetUse: "Water storage containers, drains, and potential breeding sites",
-        targetUseTh: "ภาชนะเก็บน้ำ ท่อระบาย และแหล่งเพาะพันธุ์ยุง",
+        targetUseTh: "ภาชนะเก็บน้ำ และแหล่งเพาะพันธุ์ยุง",
         setId: "set-1"
     },
     {
@@ -178,9 +177,9 @@ export const products: Product[] = [
     {
         id: "procare-disinfectant",
         name: "Procare Hygienic Disinfectant",
-        nameTh: "โปรแคร์ น้ำยาฆ่าเชื้อ",
-        description: "Multi-purpose disinfectant liquid effective against viruses, bacteria, and SARS-CoV-2. Non-corrosive formula suitable for floors, walls, bathrooms, and various surfaces in hospitals, schools, and offices.",
-        descriptionTh: "น้ำยาฆ่าเชื้ออเนกประสงค์ มีประสิทธิภาพกำจัดไวรัส แบคทีเรีย และเชื้อ SARS-CoV-2 สูตรไม่กัดกร่อน เหมาะสำหรับพื้น ผนัง ห้องน้ำ และพื้นผิวต่างๆ ในโรงพยาบาล โรงเรียน และสำนักงาน",
+        nameTh: "Procare Hygienic Disinfectant",
+        description: "Disinfectant product for building hygiene control. Can eliminate bacteria and viruses effectively. Suitable for high-touch areas such as hospitals, schools, offices, and public spaces.",
+        descriptionTh: "ผลิตภัณฑ์ฆ่าเชื้อสำหรับการควบคุมสุขอนามัยในอาคาร สามารถกำจัดเชื้อแบคทีเรียและเชื้อไวรัสได้อย่างมีประสิทธิภาพ เหมาะสำหรับพื้นที่ที่มีการสัมผัสบ่อย เช่น โรงพยาบาล โรงเรียน สำนักงาน และพื้นที่สาธารณะ",
         category: "Surface Disinfectant",
         categoryTh: "ฆ่าเชื้อพื้นผิว",
         benefits: [
@@ -197,21 +196,21 @@ export const products: Product[] = [
             "ฆ่าเชื้อระดับโรงพยาบาล",
             "กลิ่นหอมสดชื่น"
         ],
-        usageType: "Dilute & Mop / Wipe",
-        usageTypeTh: "เจือจางแล้วถู / เช็ด",
+        usageType: "Bactericidal (Hospital) / Virucidal",
+        usageTypeTh: "ฆ่าเชื้อแบคทีเรีย (ในโรงพยาบาล) / ฆ่าเชื้อไวรัส",
         image: "/products/procare-disinfectant.svg",
         productImage: "/image/set2/Hygienic Disinfectant.jpg",
-        activeIngredient: "Quaternary Ammonium Compounds",
-        targetUse: "Floors, walls, bathrooms in hospitals, schools, offices",
-        targetUseTh: "พื้น ผนัง ห้องน้ำ ในโรงพยาบาล โรงเรียน สำนักงาน",
+        activeIngredient: "Ethoxylated nonyl phenol 3.000% w/v / Alkyl dimethyl benzyl ammonium chloride 0.150% w/v / Poly (hexamethylenebiguanide) hydrochloride (PHMB) 0.040% w/v / Coconut fatty acid 0.015% w/v",
+        targetUse: "High-touch areas: Hospitals, schools, offices, public spaces",
+        targetUseTh: "พื้นที่ที่มีการสัมผัสบ่อย เช่น โรงพยาบาล โรงเรียน สำนักงาน และพื้นที่สาธารณะ",
         setId: "set-2"
     },
     {
         id: "procare-spray",
         name: "Procare Hygienic Disinfectant Spray",
-        nameTh: "โปรแคร์ สเปรย์ฆ่าเชื้อ",
-        description: "Ready-to-use disinfectant spray achieving 99.9% disinfection in just 1 minute. Designed for high-touch surfaces and indoor public hygiene control. Convenient spray format for quick application.",
-        descriptionTh: "สเปรย์ฆ่าเชื้อพร้อมใช้ ฆ่าเชื้อได้ 99.9% ภายใน 1 นาที ออกแบบสำหรับพื้นผิวสัมผัสบ่อยและการควบคุมสุขอนามัยในอาคาร รูปแบบสเปรย์สะดวกใช้งานรวดเร็ว",
+        nameTh: "Procare Hygienic Disinfectant Spray",
+        description: "Ready-to-use disinfectant product for building hygiene control. Can eliminate bacteria and viruses effectively. Suitable for high-touch areas such as hospitals, schools, offices, and public spaces.",
+        descriptionTh: "ผลิตภัณฑ์ฆ่าเชื้อสำหรับการควบคุมสุขอนามัยในอาคาร สามารถกำจัดเชื้อแบคทีเรียและเชื้อไวรัสได้อย่างมีประสิทธิภาพ เหมาะสำหรับพื้นที่ที่มีการสัมผัสบ่อย เช่น โรงพยาบาล โรงเรียน สำนักงาน และพื้นที่สาธารณะ",
         category: "Spray Disinfectant",
         categoryTh: "สเปรย์ฆ่าเชื้อ",
         benefits: [
@@ -219,7 +218,7 @@ export const products: Product[] = [
             "Ready-to-use spray format",
             "Ideal for high-touch surfaces",
             "Quick-dry formula",
-            "Indoor hygiene control"
+            "Indoor public hygiene control"
         ],
         benefitsTh: [
             "ฆ่าเชื้อ 99.9% ใน 1 นาที",
@@ -228,13 +227,13 @@ export const products: Product[] = [
             "สูตรแห้งเร็ว",
             "ควบคุมสุขอนามัยในอาคาร"
         ],
-        usageType: "Spray directly",
-        usageTypeTh: "ฉีดพ่นโดยตรง",
+        usageType: "Bactericidal (Hospital) / Virucidal",
+        usageTypeTh: "ฆ่าเชื้อแบคทีเรีย (ในโรงพยาบาล) / ฆ่าเชื้อไวรัส",
         image: "/products/procare-spray.svg",
         productImage: "/image/set2/Hygienic Disinfect Spray.jpg",
-        activeIngredient: "Ethanol + Quaternary Ammonium",
-        targetUse: "High-touch surfaces: door handles, desks, equipment",
-        targetUseTh: "พื้นผิวสัมผัสบ่อย: มือจับประตู โต๊ะ อุปกรณ์",
+        activeIngredient: "Ethoxylated nonyl phenol 3.000% w/v / Alkyl dimethyl benzyl ammonium chloride 0.150% w/v / Poly (hexamethylenebiguanide) hydrochloride (PHMB) 0.040% w/v / Coconut fatty acid 0.015% w/v",
+        targetUse: "High-touch areas: Hospitals, schools, offices, public spaces",
+        targetUseTh: "พื้นที่ที่มีการสัมผัสบ่อย เช่น โรงพยาบาล โรงเรียน สำนักงาน และพื้นที่สาธารณะ",
         setId: "set-2"
     },
 
@@ -244,7 +243,7 @@ export const products: Product[] = [
         name: "RejeX-it (Bird Repellent)",
         nameTh: "รีเจ็กซ์-อิท (ไล่นก)",
         description: "Professional bird repellent gel for deterring pigeons and pest birds from structures. Non-toxic, humane solution for protecting buildings, monuments, and public areas from bird-related damage and disease transmission.",
-        descriptionTh: "เจลไล่นกระดับมืออาชีพ สำหรับป้องกันนกพิราบและนกรบกวนจากอาคาร สูตรไม่เป็นพิษ ปลอดภัย ปกป้องอาคาร อนุสาวรีย์ และพื้นที่สาธารณะจากความเสียหายและการแพร่โรคจากนก",
+        descriptionTh: "สารไล่นกระดับมืออาชีพ สำหรับป้องกันนกพิราบและนกรบกวนจากอาคาร สูตรไม่เป็นพิษ ปลอดภัย ปกป้องอาคาร อนุสาวรีย์ และพื้นที่สาธารณะจากความเสียหายและการแพร่โรคจากนก",
         category: "Bird Control",
         categoryTh: "ควบคุมนก",
         benefits: [
@@ -256,13 +255,13 @@ export const products: Product[] = [
         ],
         benefitsTh: [
             "สูตรไม่เป็นพิษ ไล่นกอย่างมีมนุษยธรรม",
-            "เจลออกฤทธิ์ยาวนาน 6-12 เดือน",
+            "สารออกฤทธิ์ยาวนาน 6-12 เดือน",
             "ทนทานต่อสภาพอากาศ",
             "ปลอดภัยต่ออาคารและโครงสร้าง",
             "ป้องกันการแพร่โรคจากนก"
         ],
         usageType: "Gel Application",
-        usageTypeTh: "ทาเจล",
+        usageTypeTh: "สาร",
         image: "/products/rejex-it.svg",
         productImage: "/image/set3/RejeX-it.jpg",
         infoImage: "/image/set3/RejeX-it-INFO.jpg",
