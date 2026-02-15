@@ -3,10 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import { contactInfo } from "@/data/products";
 import PhoneModal from "./PhoneModal";
+import Toast from "./Toast";
 
 export default function Contact() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [isPhoneModalOpen, setIsPhoneModalOpen] = useState(false);
+    const [toast, setToast] = useState({ show: false, message: "" });
+
+    const handleCopy = (text: string, label: string) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setToast({ show: true, message: `คัดลอก${label}เรียบร้อยแล้ว` });
+        });
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -102,12 +110,20 @@ export default function Contact() {
                         </div>
                         <h3 className="contact-card-title">โทรศัพท์</h3>
                         <div className="contact-card-phones">
-                            <a href="tel:0935951945" className="contact-card-phone-link">
+                            <button
+                                onClick={() => handleCopy("0935951945", "เบอร์โทรศัพท์")}
+                                className="contact-card-phone-link w-full text-left bg-transparent border-0 cursor-pointer"
+                                type="button"
+                            >
                                 093 595 1945
-                            </a>
-                            <a href="tel:0816144914" className="contact-card-phone-link">
+                            </button>
+                            <button
+                                onClick={() => handleCopy("0816144914", "เบอร์โทรศัพท์")}
+                                className="contact-card-phone-link w-full text-left bg-transparent border-0 cursor-pointer"
+                                type="button"
+                            >
                                 081 614 4914
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -128,9 +144,10 @@ export default function Contact() {
                     </a>
 
                     {/* Email Card */}
-                    <a
-                        href="mailto:aody2514@gmail.com?subject=สอบถามข้อมูลสินค้า"
-                        className="contact-card contact-card-email-link"
+                    <button
+                        onClick={() => handleCopy(contactInfo.email, "อีเมล")}
+                        className="contact-card contact-card-email-link w-full bg-transparent border-0 cursor-pointer"
+                        type="button"
                     >
                         <div className="contact-card-icon-wrapper contact-card-icon-email">
                             <svg className="contact-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +156,7 @@ export default function Contact() {
                         </div>
                         <h3 className="contact-card-title">อีเมล</h3>
                         <p className="contact-card-value">{contactInfo.email}</p>
-                    </a>
+                    </button>
                 </div>
 
                 {/* Main CTA */}
@@ -169,7 +186,7 @@ export default function Contact() {
                             </a>
                             <button
                                 onClick={() => setIsPhoneModalOpen(true)}
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0A2463] font-semibold rounded-xl border-2 border-[#0A2463] hover:bg-blue-50 active:opacity-90 transition-colors sm:hidden cursor-pointer"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0A2463] font-semibold rounded-xl border-2 border-[#0A2463] hover:bg-blue-50 active:opacity-90 transition-colors md:hidden cursor-pointer"
                                 type="button"
                             >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -178,25 +195,27 @@ export default function Contact() {
                                 <span>โทรสอบถาม</span>
                             </button>
                             {/* Desktop phone links in CTA */}
-                            <div className="hidden sm:flex items-center gap-3">
-                                <a
-                                    href="tel:0935951945"
-                                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0A2463] font-semibold rounded-xl border-2 border-[#0A2463] hover:bg-blue-50 transition-colors"
+                            <div className="hidden md:flex items-center gap-3">
+                                <button
+                                    onClick={() => handleCopy("0935951945", "เบอร์โทรศัพท์")}
+                                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0A2463] font-semibold rounded-xl border-2 border-[#0A2463] hover:bg-blue-50 transition-colors cursor-pointer"
+                                    type="button"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
                                     <span>093-595-1945</span>
-                                </a>
-                                <a
-                                    href="tel:0816144914"
-                                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0A2463] font-semibold rounded-xl border-2 border-[#0A2463] hover:bg-blue-50 transition-colors"
+                                </button>
+                                <button
+                                    onClick={() => handleCopy("0816144914", "เบอร์โทรศัพท์")}
+                                    className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white text-[#0A2463] font-semibold rounded-xl border-2 border-[#0A2463] hover:bg-blue-50 transition-colors cursor-pointer"
+                                    type="button"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
                                     <span>081-614-4914</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -224,6 +243,12 @@ export default function Contact() {
             <PhoneModal
                 isOpen={isPhoneModalOpen}
                 onClose={() => setIsPhoneModalOpen(false)}
+            />
+            {/* Toast Notification */}
+            <Toast
+                message={toast.message}
+                isVisible={toast.show}
+                onClose={() => setToast((prev) => ({ ...prev, show: false }))}
             />
         </section>
     );
