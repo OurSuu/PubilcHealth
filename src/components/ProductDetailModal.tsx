@@ -166,8 +166,23 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
                                 </p>
                             </div>
 
-                            {/* Active Ingredient */}
-                            {product.activeIngredient && (
+                            {/* Technical Specs or Active Ingredient */}
+                            {product.technicalSpecs && product.technicalSpecs.length > 0 ? (
+                                <div className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">
+                                        ข้อมูลทางเทคนิค
+                                    </h3>
+                                    <p className="text-[10px] text-gray-400 mb-3">Technical Specifications</p>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                                        {product.technicalSpecs.map((spec, index) => (
+                                            <div key={index} className="flex flex-col">
+                                                <span className="text-[11px] text-gray-500 font-medium">{spec.labelTh}</span>
+                                                <span className="text-sm text-gray-900 font-semibold">{spec.value}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ) : product.activeIngredient ? (
                                 <div className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-100">
                                     <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
                                         สารออกฤทธิ์
@@ -181,7 +196,7 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
                                         ))}
                                     </ul>
                                 </div>
-                            )}
+                            ) : null}
 
                             {/* Benefits */}
                             <div className="mb-6">

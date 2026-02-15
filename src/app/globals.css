@@ -8,39 +8,39 @@
   --primary-700: #1E3A8A;
   --primary-600: #1E40AF;
   --primary-500: #2563EB;
-  
+
   /* Secondary Colors */
   --secondary-500: #3B82F6;
   --secondary-400: #60A5FA;
   --secondary-300: #93C5FD;
-  
+
   /* Accent Colors */
   --accent-silver: #94A3B8;
   --accent-light-blue: #DBEAFE;
-  
+
   /* Background & Surface */
   --bg-primary: #F8FAFC;
   --bg-secondary: #F1F5F9;
   --surface: #FFFFFF;
   --surface-elevated: #FFFFFF;
-  
+
   /* Text Colors */
   --text-primary: #0F172A;
   --text-secondary: #475569;
   --text-muted: #64748B;
   --text-inverse: #FFFFFF;
-  
+
   /* Gradients */
   --gradient-hero: linear-gradient(135deg, #0A2463 0%, #1E3A8A 50%, #1E40AF 100%);
   --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   --gradient-accent: linear-gradient(90deg, #3B82F6 0%, #2563EB 100%);
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-base: 300ms ease;
@@ -67,6 +67,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -77,6 +78,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -87,6 +89,7 @@ body {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -98,6 +101,7 @@ body {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -109,6 +113,7 @@ body {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -116,9 +121,12 @@ body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
+
   50% {
     box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
   }
@@ -223,7 +231,7 @@ body {
 
 /* Chemical Pattern Background */
 .chemical-pattern {
-  background-image: 
+  background-image:
     radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(30, 58, 138, 0.05) 0%, transparent 50%);
 }
@@ -244,4 +252,378 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-600);
+}
+
+/* =============================================
+   Contact Section - Mobile Buttons
+   ============================================= */
+.contact-mobile-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+}
+
+@media (min-width: 768px) {
+  .contact-mobile-buttons {
+    display: none;
+  }
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s, box-shadow 0.2s;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.contact-btn:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+.contact-btn-phone {
+  background: linear-gradient(135deg, #0A2463 0%, #1E3A8A 100%);
+  box-shadow: 0 4px 14px rgba(10, 36, 99, 0.3);
+}
+
+.contact-btn-line {
+  background: linear-gradient(135deg, #00B900 0%, #00A000 100%);
+  box-shadow: 0 4px 14px rgba(0, 185, 0, 0.3);
+}
+
+.contact-btn-email {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+
+.contact-btn-email:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.contact-btn-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   Contact Section - Desktop Cards
+   ============================================= */
+.contact-desktop-cards {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .contact-desktop-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 2rem;
+  }
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.contact-card-icon-green {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.contact-card-icon-line {
+  background: rgba(0, 185, 0, 0.2);
+  color: #00B900;
+}
+
+.contact-card-icon-email {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+}
+
+.contact-card-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.contact-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.contact-card-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-card-phone-link {
+  display: block;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.contact-card-phone-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.contact-card-value {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-card-line-link,
+.contact-card-email-link {
+  cursor: pointer;
+}
+
+/* =============================================
+   Phone Modal - Bottom Sheet
+   ============================================= */
+.phone-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  animation: phone-modal-fade-in 0.2s ease-out;
+  pointer-events: auto;
+}
+
+.phone-modal-sheet {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  padding: 12px 20px 28px;
+  animation: phone-modal-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+  .phone-modal-sheet {
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.phone-modal-handle {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0 12px;
+}
+
+.phone-modal-handle-bar {
+  width: 36px;
+  height: 4px;
+  background: #d1d5db;
+  border-radius: 99px;
+}
+
+@media (min-width: 640px) {
+  .phone-modal-handle {
+    display: none;
+  }
+}
+
+.phone-modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.phone-modal-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #0A2463 0%, #1E3A8A 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.phone-modal-icon {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+}
+
+.phone-modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.phone-modal-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.phone-modal-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.phone-modal-number-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 60px;
+  padding: 14px 18px;
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.phone-modal-number-btn:hover {
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+.phone-modal-number-btn:active {
+  transform: scale(0.98);
+  background: #dbeafe;
+}
+
+.phone-modal-number-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.phone-modal-number-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.phone-modal-number-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: 0.025em;
+}
+
+.phone-modal-call-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.phone-modal-call-icon {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+
+.phone-modal-close-btn {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  background: transparent;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.phone-modal-close-btn:hover {
+  background: #f3f4f6;
+}
+
+.phone-modal-close-btn:active {
+  background: #e5e7eb;
+}
+
+@keyframes phone-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes phone-modal-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
