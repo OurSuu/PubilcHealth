@@ -13,6 +13,7 @@ export interface Product {
     image: string;
     productImage: string;      // Main product image for card display
     infoImage?: string;        // Optional info/detail image for modal
+    infoImages?: string[];     // Optional multiple info images for modal gallery
     activeIngredient?: string;
     technicalSpecs?: { label: string; labelTh: string; value: string }[];
     targetUse: string;
@@ -169,6 +170,12 @@ export const products: Product[] = [
         usageTypeTh: "เม็ดหยดลงน้ำ 1 เม็ด ต่อน้ำ 250 ลิตร",
         image: "/products/l-proxy.svg",
         productImage: "/image/set2/L-Proxy.jpeg",
+        infoImages: [
+            "/image/set2/L-Proxy-Info1.jpeg",
+            "/image/set2/L-Proxy-Info2.jpeg",
+            "/image/set2/L-Proxy-Info3.jpeg",
+            "/image/set2/L-Proxy.jpg",
+        ],
         activeIngredient: "Pyriproxyfen 0.25% w/w",
         targetUse: "Water container surveillance and long-term larvae control",
         targetUseTh: "เฝ้าระวังภาชนะน้ำและควบคุมลูกน้ำระยะยาว",

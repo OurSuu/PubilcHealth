@@ -17,7 +17,9 @@ export default function ProductDetailModal({ product, isOpen, onClose }: Product
 
     // Collect all images for this product
     const images = [product.productImage];
-    if (product.infoImage) {
+    if (product.infoImages && product.infoImages.length > 0) {
+        images.push(...product.infoImages);
+    } else if (product.infoImage) {
         images.push(product.infoImage);
     }
 
