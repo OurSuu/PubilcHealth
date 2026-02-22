@@ -115,14 +115,14 @@ export default function Contact() {
                                 className="contact-card-phone-link w-full text-left bg-transparent border-0 cursor-pointer"
                                 type="button"
                             >
-                                093 595 1945
+                                ปุณยนุช — 093 595 1945
                             </button>
                             <button
                                 onClick={() => handleCopy("0816144914", "เบอร์โทรศัพท์")}
                                 className="contact-card-phone-link w-full text-left bg-transparent border-0 cursor-pointer"
                                 type="button"
                             >
-                                081 614 4914
+                                จักรี — 081 614 4914
                             </button>
                         </div>
                     </div>
@@ -204,7 +204,7 @@ export default function Contact() {
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
-                                    <span>093-595-1945</span>
+                                    <span>ปุณยนุช 093-595-1945</span>
                                 </button>
                                 <button
                                     onClick={() => handleCopy("0816144914", "เบอร์โทรศัพท์")}
@@ -214,7 +214,7 @@ export default function Contact() {
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
-                                    <span>081-614-4914</span>
+                                    <span>จักรี 081-614-4914</span>
                                 </button>
                             </div>
                         </div>

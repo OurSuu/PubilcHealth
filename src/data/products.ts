@@ -242,6 +242,9 @@ export const products: Product[] = [
         usageTypeTh: "พ่นควบคุมแมลงในพื้นที่เปิดและพื้นที่กว้าง",
         image: "/products/swingfog.svg",
         productImage: "/image/set1/Swingfog.jpeg",
+        infoImages: [
+            "/image/set1/Swingfog2.jpeg"
+        ],
         technicalSpecs: [
             { label: "Solution Tank Capacity", labelTh: "ความจุถังน้ำยา", value: "5.5 L" },
             { label: "Fuel Tank Capacity", labelTh: "ความจุถังเชื้อเพลิง", value: "1.5 L" },
@@ -623,7 +626,7 @@ export const targetUsers = [
 ];
 
 export const contactInfo = {
-    phone: "093 595 1945 , 081 614 4914",
+    phone: "093 595 1945, 081 614 4914",
     email: "aody2514@gmail.com",
     line: "aody.ct2514",
     facebook: "PublicHealthSolutionsTH",

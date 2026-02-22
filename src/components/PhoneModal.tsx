@@ -9,12 +9,12 @@ interface PhoneModalProps {
 
 const phoneNumbers = [
     {
-        label: "สายที่ 1",
+        label: "ปุณยนุช",
         number: "093 595 1945",
         tel: "tel:0935951945",
     },
     {
-        label: "สายที่ 2",
+        label: "จักรี",
         number: "081 614 4914",
         tel: "tel:0816144914",
     },
